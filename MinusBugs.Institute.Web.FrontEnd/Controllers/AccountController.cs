@@ -12,7 +12,7 @@ using MinusBugs.Institute.Web.FrontEnd.Models;
 
 namespace MinusBugs.Institute.Web.FrontEnd.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
