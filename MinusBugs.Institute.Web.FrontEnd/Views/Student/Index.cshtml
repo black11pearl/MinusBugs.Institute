@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MinusBugs.Institute.Web.FrontEnd.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>ViewStudents</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>Student</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of Student</h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("View Registered Students", "ViewReg", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.DateofRegistration)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in (List< MinusBugs.Institute.Web.FrontEnd.Models.Student>)ViewBag.Students) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofRegistration)
+        </td>
+        <td>
+			@Html.ActionLink("Details", "Details", new { id=item.Admno }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Edit", "Edit", new { id=item.Admno }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Delete", "Delete", new { id = item.Admno }, new { @class = "btn btn-white btn-sm" })
+            @Html.ActionLink("Join a Course", "JoinfromList", "Student", new { id=item.Admno }, new { @class = "btn btn-w-m btn-success" })
+        </td>
+    </tr>
+}
+
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

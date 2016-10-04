@@ -1,0 +1,20 @@
+P:\Experiments\AnalyticsApi\AnalyticsApi\bin\Debug\AnalyticsApi.dll
+P:\Experiments\AnalyticsApi\AnalyticsApi\bin\Debug\AnalyticsApi.pdb
+P:\Experiments\AnalyticsApi\AnalyticsApi\obj\Debug\ResolveAssemblyReference.cache
+P:\Experiments\AnalyticsApi\AnalyticsApi\obj\Debug\AnalyticsApi.dll
+P:\Experiments\AnalyticsApi\AnalyticsApi\obj\Debug\AnalyticsApi.pdb
+P:\Private\AnalyticsApi\AnalyticsApi\bin\Debug\AnalyticsApi.dll
+P:\Private\AnalyticsApi\AnalyticsApi\bin\Debug\AnalyticsApi.pdb
+P:\Private\AnalyticsApi\AnalyticsApi\obj\Debug\ResolveAssemblyReference.cache
+P:\Private\AnalyticsApi\AnalyticsApi\obj\Debug\AnalyticsApi.dll
+P:\Private\AnalyticsApi\AnalyticsApi\obj\Debug\AnalyticsApi.pdb
+\\psf\Home\Downloads\AnalyticsApi-master\AnalyticsApi\bin\Debug\AnalyticsApi.dll
+\\psf\Home\Downloads\AnalyticsApi-master\AnalyticsApi\bin\Debug\AnalyticsApi.pdb
+\\psf\Home\Downloads\AnalyticsApi-master\AnalyticsApi\obj\Debug\AnalyticsApi.csprojResolveAssemblyReference.cache
+\\psf\Home\Downloads\AnalyticsApi-master\AnalyticsApi\obj\Debug\AnalyticsApi.dll
+\\psf\Home\Downloads\AnalyticsApi-master\AnalyticsApi\obj\Debug\AnalyticsApi.pdb
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\AnalyticsApi\bin\Debug\AnalyticsApi.dll
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\AnalyticsApi\bin\Debug\AnalyticsApi.pdb
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\AnalyticsApi\obj\Debug\AnalyticsApi.csprojResolveAssemblyReference.cache
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\AnalyticsApi\obj\Debug\AnalyticsApi.dll
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\AnalyticsApi\obj\Debug\AnalyticsApi.pdb

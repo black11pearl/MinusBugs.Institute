@@ -1,0 +1,174 @@
+﻿@model IEnumerable<MinusBugs.Institute.Web.FrontEnd.Models.Staff>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>*@
+
+<link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>	Search Page</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Staff")">Staffs</a>
+            </li>
+
+            <li class="active">
+                <strong>	Search Page</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    
+
+
+                    @*<div class="search-form">
+                            <span class="text-navy">Enter Search Term:</span>
+                            <form action="@Url.Action("Dashboard_1", "Dashboards")" method="get">
+                                <div class="input-group">
+                                    @Html.TextBox("searchterm", null, new { id = "txtSearch" })
+                                    <input type="submit" value="Search" />
+                                    <input type="text" placeholder="Enter here" name="txtSearch" class="form-control input-lg">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-lg btn-primary" type="submit">
+                                            Search
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>*@
+
+                    <script type="text/javascript">
+        $(function () {
+            $("#txtSearch").autocomplete({
+                source: '@Url.Action("GetStaff")'
+            });
+        });
+                    </script>
+
+                    @using (Html.BeginForm())
+                    {
+                        <h3>
+                            <span class="text-navy">Select Search Field:</span>
+                            @*<select class="form-control m-b" name="searchfield" id="searchfield">
+                                    <option>--select--</option>
+                                    <option value="StaffName">Name</option>
+                                    <option value="Staff_Address">Location</option>
+                                    <option value="Staff Designation">Designation</option>
+
+                                </select>*@
+                            @Html.RadioButton("searchBy", "StaffName") Name
+                            @Html.RadioButton("searchBy", "Staff_Designation") Designation
+                            @Html.RadioButton("searchBy", "Staff_Technology") Technology
+                        </h3>
+                        <br />
+
+                        <b>Enter Search Term:</b>
+                        @Html.TextBox("searchterm", null, new { id = "txtSearch" })
+                        <input type="submit" value="Search" />
+                    }
+                    <br/>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StaffName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Email)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_ContactNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Qualification)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Technology)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Salary)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Staff_Designation)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StaffName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Email)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_ContactNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Qualification)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Technology)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Salary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff_Designation)
+                                </td>
+
+                                <td>
+                                        @Html.ActionLink("Details", "Details", new { id = item.StaffId }, new { @class = "btn btn-primary btn-sm" })
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.StaffId }, new { @class = "btn btn-white btn-sm" })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.StaffId }, new { @class = "btn btn-white btn-sm" })*@
+                                    </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                    @*<div class="hr-line-dashed"></div>
+                        <div class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-white" type="button"><i class="fa fa-chevron-left"></i></button>
+                                <button class="btn btn-white active">1</button>
+                                <button class="btn btn-white">2</button>
+                                <button class="btn btn-white">3</button>
+                                <button class="btn btn-white">4</button>
+                                <button class="btn btn-white">5</button>
+                                <button class="btn btn-white">6</button>
+                                <button class="btn btn-white">7</button>
+                                <button class="btn btn-white" type="button"><i class="fa fa-chevron-right"></i> </button>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

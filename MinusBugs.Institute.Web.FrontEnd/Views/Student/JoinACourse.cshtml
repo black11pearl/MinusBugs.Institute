@@ -1,0 +1,397 @@
+﻿
+@using MinusBugs.Institute.Web.FrontEnd.Models
+
+@model Student
+
+@{
+    ViewBag.Title = "ProjectDetail";
+}
+
+@{
+    Student std = (Student)TempData["student"];
+    List<Courses> courses = (List<Courses>)TempData["courses"];
+}
+<script src="~/Scripts/jquery-1.6.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var paymentid;
+        $("#Courses").change(function () {
+
+           CourseId = document.getElementById('Courses').value;
+        
+           var ds = { Id: CourseId};
+            $.ajax({
+                type: 'POST',
+                url: '/Courses/GetCourseJson',
+                data: ds,
+                success: function (data) {
+                    var result = jQuery.parseJSON(data);
+
+                   // var title = result[0].Role;
+                    //alert(result.Description);
+                    $("#coursedec1").text(result.Description);
+                    $("#CourseD_Right").text(result.Description);
+                    $("#CourseFee").text(result.CourseFee);
+                    $("#CourseTitle").text(result.CourseTitle);
+                    $("#CourseFee1").text(result.CourseFee);
+                    $("#CourseDuration").text(result.Duration_in_Hrs);
+                    $("#coursetype").text(result.CourseType);
+                    $("#modal_title").text(result.CourseTitle);
+                    $("#modal_desc").text(result.Description);
+                    $("#remaining_amount").text(result.CourseFee);
+                    $("#payment").fadeIn('slow');
+
+                    $("#lin_pay").fadeIn('slow');
+
+                    $("#lin_des").fadeIn('slow');
+                    $("#course_des").fadeIn('slow');
+                    $("#cluster_info").fadeIn('slow');
+                    
+                    
+                  //  window.location.href = '/Dashboards/Dashboard_3';
+
+                }
+
+            });
+
+
+        });
+        $("#btnPay").click(function () {
+
+             txtAmt = $("#txtAmount").val();
+            var ActualAmount = $("#CourseFee1").text();
+           
+             balanceAmt = parseFloat(ActualAmount) - parseFloat(txtAmt);
+            if (balanceAmt >= 0) {
+                $("#remaining_amount").text(balanceAmt);
+                $("#md_amt").text(txtAmt);
+                $("#btnPay1").click();
+                $("#pay_sch").fadeIn('slow');
+                $("#lin_sch").fadeIn('slow');
+                $("#remaining_amount1").text(balanceAmt);
+               
+            }
+            else
+            {
+                alert("Invalid Amount,Please verify again");
+               // $("btnConfirm").addClass("hide");
+            }
+        });
+
+        $("#btnConfirm").click(function () {
+            admno = $("#lbladmno").text();
+            
+            var ds = { Admno: admno, courseId: CourseId, amount: txtAmt, totbalancetopay: balanceAmt }
+            $.ajax({
+                type: 'POST',
+                url: '/Payment/MakePayment',
+                data: ds,
+                success: function (data) {
+                    var result = jQuery.parseJSON(data);
+                    paymentid = result;
+                
+                }
+            });
+          
+        });
+
+        $("#btnInvoice").click(function () {
+           
+            $.ajax({
+                type: 'POST',
+                url: '/Payment/Index',
+                data: { Paymentid: paymentid },
+                success: function (data) {
+                    //var result = jQuery.parseJSON(data);
+                    //alert(data);
+                    window.location.href = '/Payment/Invoice';
+                }
+            });
+
+        });
+
+        $("#btnAdd").click(function () {
+
+            rem_amt = $("#remaining_amount1").text();
+            sch_amount = $("#sch_amt").val();
+
+            balance1 = parseFloat(rem_amt) - parseFloat(sch_amount);
+            $("#remaining_amount1").text(balance1);
+
+
+
+            amount = sch_amount;
+            admno = $("#lbladmno").text();
+            date = $("#txtdate").val();
+            balanceamount = balance1;
+
+            var ds = { Admno: admno, CourseId: CourseId, Amount: amount, Date: date ,BalanceToPay:balanceamount};
+            if (balanceamount >= 0) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Payment/AddNewSchedule',
+                    data: ds,
+                    success: function (data) {
+                        var result = jQuery.parseJSON(data);
+                        $("#pay_sch_data").fadeIn('slow');
+                        $("#lin_sch").fadeIn('slow');
+
+
+                        $("#table_data_sch").append("<tr><td>" + result.ScheduleId + "</td><td>" + result.Sch_Date + "</td><td>" + result.Sch_Amount + "</td><td>" + result.Sch_BalanceToPay + "</td><td>" + result.Sch_AmountPaid + "</td></tr>")
+                    }
+                });
+            }
+            else
+            {
+                alert("Payment scheduling has been completed");
+
+            }
+
+        });
+       
+        
+    });
+</script>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@std.FirstName join for a course</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li class="active">
+                <strong>Course Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="m-b-md">
+                                <a href="#" class="btn btn-white btn-xs pull-right">Edit project</a>
+                                <h2>Join a course now</h2>
+                            </div>
+                            <dl class="dl-horizontal">
+                                <dt>Admission No</dt>
+                                <dd id="lbladmno">@std.Admno</dd>
+                                <dt>Date</dt>
+                                <dd id="lbldate">@DateTime.Now.ToShortDateString()</dd>
+                                <dt>Address:</dt>
+                                <dd><span class="label label-primary">@std.Adress</span></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
+
+                                <dt>Email Id</dt>
+                                <dd>@std.Email</dd>
+                                <dt>Mobile Number</dt>
+                                <dd>@std.MobileNumber</dd>
+                                <dt>City</dt>
+                                <dd><a href="#" class="text-navy">@std.City</a> </dd>
+
+                            </dl>
+                        </div>
+                        <div class="col-lg-7" id="cluster_info" style="display:none">
+                            <dl class="dl-horizontal">
+
+
+                                <dt><span class=" fa fa-4x fa-rupee" style="padding-top:15px"></span></dt>
+                                <dd><h1 id="CourseFee1" style="font-size: 53px;font-weight: bold;color: #1AB394;"></h1></dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <dl class="dl-horizontal">
+                                <dt>Select Course</dt>
+                                <dd>
+                                    @Html.DropDownList("Courses","Select Course")
+                                </dd>
+
+                                <dt></dt>
+                                <dd></dd>
+
+                                <dt>Course Duration In Hrs</dt>
+                                <dd id="CourseDuration"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed" id="lin_des" style="display:none"></div>
+                    <div class="row m-t-sm" id="course_des" style="display:none">
+                        <div class=" col-lg-12">
+                            <h2 id="CourseTitle"><span id="coursetype"> </span></h2>
+                            <p id="coursedec1" style="margin-top:5px"></p>
+
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed" id="lin_pay" style="display:none"></div>
+                    <div class="row m-t-sm" id="payment" style="display:none">
+                        <div class="col-lg-7">
+                            <h2>Payment</h2>
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.TextBox("txtAmount", "", new { @class = "form-control" })
+                                </dt>
+                                <dd>
+                                    <input type="submit" id="btnPay" name="btnPay" class="btn btn-primary" data-target="#myModal6" />
+                                    <input type="submit" id="btnPay1" style="display:none" name="btnPay" class="btn btn-primary" data-toggle="modal" data-target="#myModal6" />
+
+
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
+                                <dt></dt>
+                                <dd></dd>
+
+                                <dt>Balance Amount</dt>
+                                <dd><h1 id="remaining_amount" style="font-size: 15px;font-weight: bold;color: #1AB394;margin-top: 2px;"></h1></dd>
+
+                            </dl>
+                        </div>
+                        <div class="modal inmodal fade" id="myModal6" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="modal_title"></h4>
+                                    </div>
+                                    <div class="modal-body" align="center">
+                                        <p>You are submitting an amount of Rs</p>
+                                        <p id="md_amt" style="font-size:20px" class="label label-warning">
+
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        <div id="btnConfirm" class="btn btn-primary">Confirm</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed" id="lin_sch" style="display:none"></div>
+                    <div class="row m-t-sm" id="pay_sch" style="display:none">
+                        <div class="col-lg-12">
+                            <h2>Payment Scheduler</h2>
+                            <div class="ibox-content" style="padding-left:0px">
+                                <div class="form-inline">
+                                    <div class="form-group" id="data_1">
+                                        <div class="input-group date" style="margin-top:10px">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" id="txtdate">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group m-b" style="margin-bottom: 0px;margin-top: 10px;"><span class="input-group-addon">$</span><input type="text" class="form-control" id="sch_amt"><span class="input-group-addon">.00</span></div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="btnAdd" name="btnAdd" class="btn btn-primary" style=" margin-left: 10px; margin-top: 8px; " />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-2" style="display:none">
+                            <dl class="dl-horizontal">
+                                <dt></dt>
+                                <dd></dd>
+
+                                <dt>Balance Amount</dt>
+                                <dd><h1 id="remaining_amount1" style="font-size: 15px;font-weight: bold;color: #1AB394;margin-top: 2px;"></h1></dd>
+
+                            </dl>
+                        </div>
+
+                    </div>
+                    <div class="row m-t-sm" id="pay_sch_data" style="display:none">
+                        <div id="data_sch">
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Date</th>
+                                        <th>Scheduled Amount</th>
+                                        <th>Balance to Pay</th>
+                                        <th>Amount Paid</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_data_sch"></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="row m-t-sm">
+                        <div class="col-lg-12">
+                            <input type="submit" id="btnInvoice" value="Invoice" name="btnInvoice" class="btn btn-warning" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="wrapper wrapper-content project-manager">
+            <h4>Course Description</h4>
+           <div id="CourseFee"></div>
+            <p class="small" id="CourseD_Right">
+                
+            </p>
+            <p class="small font-bold">
+                <span><i class="fa fa-circle text-warning"></i> High priority</span>
+            </p>
+            <h5>Project tag</h5>
+            <ul class="tag-list" style="padding: 0">
+                <li><a href=""><i class="fa fa-tag"></i> Zender</a></li>
+                <li><a href=""><i class="fa fa-tag"></i> Lorem ipsum</a></li>
+                <li><a href=""><i class="fa fa-tag"></i> Passages</a></li>
+                <li><a href=""><i class="fa fa-tag"></i> Variations</a></li>
+            </ul>
+            <h5>Project files</h5>
+            <ul class="list-unstyled project-files">
+                <li><a href=""><i class="fa fa-file"></i> Project_document.docx</a></li>
+                <li><a href=""><i class="fa fa-file-picture-o"></i> Logo_zender_company.jpg</a></li>
+                <li><a href=""><i class="fa fa-stack-exchange"></i> Email_from_Alex.mln</a></li>
+                <li><a href=""><i class="fa fa-file"></i> Contract_20_11_2014.docx</a></li>
+            </ul>
+            <div class="text-center m-t-md">
+                <a href="#" class="btn btn-xs btn-primary">Add files</a>
+                <a href="#" class="btn btn-xs btn-primary">Report contact</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+@Scripts.Render("~/plugins/dataPicker")
+<script>
+    $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+    });
+
+    </script>
+
+}
+

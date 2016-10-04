@@ -1,0 +1,200 @@
+﻿@model MinusBugs.Institute.Web.FrontEnd.Models.Staff
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Create</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+			@Html.ActionLink("Back to List", "ViewStaffDetails", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Create Staff</h5>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+                @Html.Label("Password", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Password("Password", "",new { @class = "text-box single-line" })
+
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+       
+         <div class="form-group">
+            @Html.LabelFor(model => model.StaffName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StaffName)
+                @Html.ValidationMessageFor(model => model.StaffName)
+            </div>
+        </div>
+      
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Address)
+                @Html.ValidationMessageFor(model => model.Staff_Address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Email)
+                @Html.ValidationMessageFor(model => model.Staff_Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Dob, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Dob)
+                @Html.ValidationMessageFor(model => model.Staff_Dob)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_ContactNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_ContactNumber)
+                @Html.ValidationMessageFor(model => model.Staff_ContactNumber)
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Qualification, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Qualification", new List<SelectListItem> {
+                new SelectListItem {Text="Diploma",Value="Diploma" },
+                new SelectListItem {Text="BCA",Value="BCA" },
+                new SelectListItem {Text="BSc Computer Science",Value="BSc Computer Science" },
+                new SelectListItem {Text="MCA",Value="MCA" },
+                new SelectListItem {Text="MSc. Computer Science",Value="MSc. Computer Science" },
+                new SelectListItem {Text="B.Tech",Value="B.Tech" },
+                new SelectListItem {Text="M.Tech",Value="M.Tech" },
+                new SelectListItem {Text="BCom",Value="BCom" },
+                new SelectListItem {Text="BBA",Value="BBA" },
+                new SelectListItem {Text="MCom",Value="MCom" },
+                new SelectListItem {Text="MBA",Value="MBA" }
+
+                }
+                , "Select Qualification", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.Staff_Designation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Technology, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Technology)
+
+                @Html.ValidationMessageFor(model => model.Staff_Technology)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Salary, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Salary)
+             
+                @Html.ValidationMessageFor(model => model.Staff_Salary)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Designation, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Designation",new List<SelectListItem> {
+                new SelectListItem {Text="HOC",Value="HOC" },
+                new SelectListItem {Text="Administrative Head",Value="Administrative Head" },
+                new SelectListItem {Text="Senior Faculty",Value="Senior Faculty" },
+                new SelectListItem {Text="Front Office Staff",Value="Front Office Staff" },
+                new SelectListItem {Text="Marketing Staff",Value="Marketing Staff" },
+                new SelectListItem {Text="Faculty",Value="Faculty" }
+
+                }
+                ,"Select Designation",new  { @class ="form-control"})
+
+                @Html.ValidationMessageFor(model => model.Staff_Designation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Date_of_Joining, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Date_of_Joining)
+                @Html.ValidationMessageFor(model => model.Staff_Date_of_Joining)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Staff_Status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Staff_Status)
+                @Html.ValidationMessageFor(model => model.Staff_Status)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Max_Leave_Granted_Per_Month, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Max_Leave_Granted_Per_Month)
+                @Html.ValidationMessageFor(model => model.Max_Leave_Granted_Per_Month)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+				@Html.ActionLink("Staff", "ViewStaffDetails", null, new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ 

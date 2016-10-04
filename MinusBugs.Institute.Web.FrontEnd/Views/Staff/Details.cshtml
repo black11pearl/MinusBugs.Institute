@@ -1,0 +1,170 @@
+﻿@model MinusBugs.Institute.Web.FrontEnd.Models.Staff
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Details</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details Staff</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_ContactNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_ContactNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Qualification)
+        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Staff_Technology)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Staff_Technology)
+                        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Date_of_Joining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Date_of_Joining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_Leave_Granted_Per_Month)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_Leave_Granted_Per_Month)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutMe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutMe)
+        </dd>
+
+    </dl>
+
+
+	    @Html.ActionLink("Edit", "Edit", new { id = Model.StaffId }, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

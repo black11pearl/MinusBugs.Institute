@@ -1,0 +1,98 @@
+﻿@model MinusBugs.Institute.Web.FrontEnd.Models.Courses
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Details</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Details Courses</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_in_Hrs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_in_Hrs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseFee)
+        </dd>
+
+    </dl>
+
+
+	    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

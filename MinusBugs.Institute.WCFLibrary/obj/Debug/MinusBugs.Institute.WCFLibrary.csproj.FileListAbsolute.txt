@@ -1,0 +1,6 @@
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\bin\Debug\MinusBugs.Institute.WCFLibrary.dll.config
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\bin\Debug\MinusBugs.Institute.WCFLibrary.dll
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\bin\Debug\MinusBugs.Institute.WCFLibrary.pdb
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\obj\Debug\MinusBugs.Institute.WCFLibrary.csprojResolveAssemblyReference.cache
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\obj\Debug\MinusBugs.Institute.WCFLibrary.dll
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.WCFLibrary\obj\Debug\MinusBugs.Institute.WCFLibrary.pdb

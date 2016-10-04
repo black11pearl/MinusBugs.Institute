@@ -1,0 +1,14 @@
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\MinusBugs.Institute.Libraries.dll
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\MinusBugs.Institute.Libraries.pdb
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.dll
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.pdb
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.csprojResolveAssemblyReference.cache
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\EntityFramework.dll
+\\psf\home\documents\visual studio 2015\Projects\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\EntityFramework.xml
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\MinusBugs.Institute.Libraries.dll
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\MinusBugs.Institute.Libraries.pdb
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\EntityFramework.dll
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\bin\Debug\EntityFramework.xml
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.csprojResolveAssemblyReference.cache
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.dll
+D:\Project New\MinusBugs.Institute (2)\MinusBugs.Institute\MinusBugs.Institute.Libraries\obj\Debug\MinusBugs.Institute.Libraries.pdb

@@ -1,0 +1,157 @@
+﻿
+@using MinusBugs.Institute.Web.FrontEnd.Models
+@model BigModel
+@{
+    Layout = null;
+}
+@{
+
+    BigModel bgmodel = (BigModel)TempData["BigModel"];
+
+    Student student = bgmodel.StudentModel;
+
+    Courses course = bgmodel.CourseModel;
+
+    PaymentDetails paymentDetails = bgmodel.PaymentModel;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minusbugs | Invoice Print</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+
+</head>
+
+<body class="white-bg">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="ibox-content p-xl">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>From:</h5>
+                            <address>
+                                <strong>MinusBugs.</strong><br>
+                                812 Pomeroon Street,Apy 306<br>
+                                Naperville,IL 60540<br>
+                                <abbr title="Phone">P:</abbr>+1 (630) 696 8748
+                            </address>
+                        </div>
+
+                        <div class="col-sm-6 text-right">
+                            <h4>Invoice No. </h4>
+                            <h4 class="text-navy">MBIN+@TempData["paymentId"]</h4>
+                            <span>To:</span>
+                            <address>
+                                <strong>Admission No: @student.Admno</strong><br />
+                                <strong>@student.FirstName @student.LastName</strong><br>
+                                @student.Adress<br>
+                                @student.City<br>
+                                <abbr title="Phone">P:</abbr> @student.MobileNumber
+                            </address>
+                            <p>
+                                <span><strong>Invoice Date:</strong>@DateTime.Now</span><br />
+                                <span><strong>Due Date:</strong>@DateTime.Now</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive m-t">
+                        <table class="table invoice-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Course Code</th>
+                                    <th>Course Duration</th>
+                                    <th>Course Type</th>
+                                    <th>Course Fee</th>
+                                    <th>Tax</th>
+                                    <th>Total Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div><strong>@course.CourseTitle</strong></div>
+                                        <small>@course.Description</small>
+                                    </td>
+                                    <td>@course.CourseId</td>
+                                    <td>@course.Duration_in_Hrs</td>
+                                    <td>@course.CourseType</td>
+                                    <td>@course.CourseFee</td>
+                                    <td>5.98</td>
+                                    <td>
+                                        @{
+
+                                            decimal amountwithTax = course.CourseFee + Convert.ToDecimal(5.98);
+                                        }
+
+                                        @amountwithTax
+                                    </td>
+
+
+
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div><!-- /table-responsive -->
+
+                    <table class="table invoice-total">
+                        <tbody>
+                            <tr>
+                                <td><strong>Sub Total :</strong></td>
+                                @{
+                                    decimal tax = Convert.ToDecimal("5.98");
+                                    decimal total = Convert.ToDecimal(course.CourseFee) + tax;
+                                }
+                                <td>@total</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Amount Paid</strong></td>
+                                <td>@paymentDetails.Pay_AmountPaid</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL :</strong></td>
+                                <td>
+                                    @{
+
+                                        decimal balance = total - paymentDetails.Pay_AmountPaid;
+                                    }
+                                    @balance.ToString()
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <button class="btn btn-primary"><i class="fa fa-dollar"></i> Make A Payment</button>
+                    </div>
+
+                    <div class="well m-t">
+                        <strong>Comments</strong>
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+<script type="text/javascript">
+    window.print();
+</script>
