@@ -10,6 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace MinusBugs.Institute.Web.FrontEnd.Controllers
 {
+    [Authorize]
     public class PaymentController : Controller
     {
         [HttpGet]

@@ -234,6 +234,7 @@
     <Compile Include="Models\dbOperations\StaffDb.cs" />
     <Compile Include="Models\dbOperations\StudentOperations.cs" />
     <Compile Include="Models\dbOperations\UserLogin.cs" />
+    <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\Features.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

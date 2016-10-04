@@ -10,6 +10,7 @@ using MinusBugs.Institute.Web.FrontEnd.Models;
 
 namespace MinusBugs.Institute.Web.FrontEnd.Controllers
 {
+    [Authorize]
     public class tblInstsController : Controller
     {
         private MinusBugsContext db = new MinusBugsContext();

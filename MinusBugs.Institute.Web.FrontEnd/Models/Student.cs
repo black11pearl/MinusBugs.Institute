@@ -63,8 +63,12 @@ namespace MinusBugs.Institute.Web.FrontEnd.Models
 
         public string College { get; set; }
         public string Qualification { get; set; }
+        [Display(Name = "Year Of Passing")]
+        [Required]
         public string YearofPassing { get; set; }
         public string Technology { get; set; }
+        [Display(Name = "Course Type")]
+        [Required]
         public string CourseType { get; set; }
 
         public string Regsitered { get; set; }
@@ -76,11 +80,11 @@ namespace MinusBugs.Institute.Web.FrontEnd.Models
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateofRegistration { get; set; }
 
-        //[Display(Name = "Joining Date")]
+        [Display(Name = "Joining Date")]
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateofJoining { get; set; }
 
-        //[Display(Name = "Completion Date")]
+        [Display(Name = "Completion Date")]
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateofCompletion { get; set; }
 

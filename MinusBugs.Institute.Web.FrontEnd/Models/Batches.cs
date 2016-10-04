@@ -23,7 +23,7 @@ namespace MinusBugs.Institute.Web.FrontEnd.Models
         [Required(ErrorMessage = "Start Date Required")]
         public DateTime StartDate { get; set; }
 
-        [Required(ErrorMessage = "Start End Date Required")]
+        [Required(ErrorMessage = "End Date Required")]
         public DateTime EndDate { get; set; }
         public int Status { get; set; }
         public int MaxStudCount { get; set; }

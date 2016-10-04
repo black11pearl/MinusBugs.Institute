@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace Inspinia_MVC5.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
 

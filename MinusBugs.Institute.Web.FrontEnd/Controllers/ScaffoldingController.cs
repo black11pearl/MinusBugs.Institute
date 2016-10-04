@@ -10,6 +10,7 @@ using Inspinia_MVC5.Models;
 
 namespace Inspinia_MVC5.Controllers
 {
+    [Authorize]
     public class ScaffoldingController : Controller
     {
         private ScaffoldingContext db = new ScaffoldingContext();

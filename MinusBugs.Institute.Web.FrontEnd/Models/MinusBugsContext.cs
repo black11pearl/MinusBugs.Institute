@@ -18,6 +18,7 @@ namespace MinusBugs.Institute.Web.FrontEnd.Models
         public DbSet<FeeSchedule> FeeScheduleData { get; set; }
         public DbSet<PaymentDetails> PaymentData { get; set; }
         public DbSet<tblInst> tblInstData { get; set; }
+        public DbSet<Expense> ExpenseData { get; set; }
 
 
     }

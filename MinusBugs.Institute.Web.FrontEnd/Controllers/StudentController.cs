@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MinusBugs.Institute.Web.FrontEnd.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private MinusBugsContext db = new MinusBugsContext();

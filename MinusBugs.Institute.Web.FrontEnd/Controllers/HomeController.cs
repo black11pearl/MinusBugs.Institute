@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace Inspinia_MVC5.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
