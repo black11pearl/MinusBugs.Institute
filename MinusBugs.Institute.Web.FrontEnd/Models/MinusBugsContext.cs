@@ -20,6 +20,6 @@ namespace MinusBugs.Institute.Web.FrontEnd.Models
         public DbSet<tblInst> tblInstData { get; set; }
         public DbSet<Expense> ExpenseData { get; set; }
 
-
+        public System.Data.Entity.DbSet<MinusBugs.Institute.Web.FrontEnd.Models.Batches> Batches { get; set; }
     }
 }

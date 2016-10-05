@@ -197,8 +197,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppViewsController.cs" />
+    <Compile Include="Controllers\BatchController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\CSSAnimationsController.cs" />
+    <Compile Include="Controllers\ExpenseController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GraphsController.cs" />
@@ -421,6 +423,13 @@
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\minusbugs\BatchSchedule.js" />
+    <Content Include="Scripts\minusbugs\Dashboard.js" />
+    <Content Include="Scripts\minusbugs\ExpenseScript.js" />
+    <Content Include="Scripts\minusbugs\ExpReport.js" />
+    <Content Include="Scripts\minusbugs\Graph.js" />
+    <Content Include="Scripts\minusbugs\RegReport.js" />
+    <Content Include="Scripts\minusbugs\Search.js" />
     <Content Include="Scripts\plugins\chartJs\Chart.min.js" />
     <Content Include="Scripts\plugins\chosen\chosen.jquery.js" />
     <Content Include="Scripts\plugins\codemirror\codemirror.js" />
@@ -963,6 +972,9 @@
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Search.cshtml" />
+    <Content Include="Views\Batch\Index.cshtml" />
+    <Content Include="Views\Expense\Index.cshtml" />
+    <Content Include="Views\Expense\ExpenseReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
